@@ -1,0 +1,12 @@
+services:
+  postgres:
+    image: postgres:14.5
+    container_name: de-postgres
+    volumes:
+      - ./01-basegeografica.sql:/docker-entrypoint-initdb.d/01-basegeografica.sql
+      - ./02-basegeografica.sql:/docker-entrypoint-initdb.d/02-basegeografica.sql
+    environment:
+      POSTGRES_PASSWORD: "mysecretpassword"
+    ports:
+      - "5432:5432"
+
